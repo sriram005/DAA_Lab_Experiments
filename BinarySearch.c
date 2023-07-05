@@ -2,13 +2,17 @@
 
 int BinarySearch(int arr[], int low, int high, int x)
 {
-    int mid = (low + high) / 2;
-    if (arr[mid] == x)
-        return mid;
-    else if (arr[mid] > x)
-        return BinarySearch(arr, low, mid - 1, x);
-    else
-        return BinarySearch(arr, mid + 1, high, x);
+    if (low <= high)
+    {
+        int mid = (low + high) / 2;
+        if (arr[mid] == x)
+            return mid;
+        else if (arr[mid] > x)
+            return BinarySearch(arr, low, mid - 1, x);
+        else
+            return BinarySearch(arr, mid + 1, high, x);
+    }
+    return -1;
 }
 
 int main()
